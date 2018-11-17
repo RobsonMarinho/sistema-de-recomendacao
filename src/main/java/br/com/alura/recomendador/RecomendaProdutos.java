@@ -19,15 +19,26 @@ public class RecomendaProdutos {
 	public static void main(String[] args) throws IOException, TasteException {
 		File file = new File("dados.csv");
 		DataModel model = new FileDataModel(file);
-		
+
 		UserSimilarity similarity = new PearsonCorrelationSimilarity(model);
 		UserNeighborhood neighborhood = new ThresholdUserNeighborhood(0.1, similarity, model);
 		UserBasedRecommender recommender = new GenericUserBasedRecommender(model, neighborhood, similarity);
 		
-		List<RecommendedItem> recommendations = recommender.recommend(2,1);
+		System.out.println("usuario 1");
+		List<RecommendedItem> recommendations = recommender.recommend(1, 4);
 		for (RecommendedItem recommendation : recommendations) {
 			System.out.println(recommendation);
 		}
-	
+		System.out.println(usuario 3);
+		recommendations = recommender.recommend(3, 4);
+		for (RecommendedItem recommendation : recommendations) {
+			System.out.println(recommendation);
+		}
+
+		System.out.println("usuario 4");
+		recommendations = recommender.recommend(4, 4);
+		for (RecommendedItem recommendation : recommendations) {
+			System.out.println(recommendation);
+		}
 	}
 }
