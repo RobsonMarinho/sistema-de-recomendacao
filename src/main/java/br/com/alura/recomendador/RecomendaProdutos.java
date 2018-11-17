@@ -20,21 +20,25 @@ public class RecomendaProdutos {
 		File file = new File("dados.csv");
 		DataModel model = new FileDataModel(file);
 
+		//Cria recomendador baseado no modelo
 		UserSimilarity similarity = new PearsonCorrelationSimilarity(model);
 		UserNeighborhood neighborhood = new ThresholdUserNeighborhood(0.1, similarity, model);
 		UserBasedRecommender recommender = new GenericUserBasedRecommender(model, neighborhood, similarity);
 		
+		//User 1
 		System.out.println("usuario 1");
 		List<RecommendedItem> recommendations = recommender.recommend(1, 4);
 		for (RecommendedItem recommendation : recommendations) {
 			System.out.println(recommendation);
 		}
-		System.out.println(usuario 3);
+		//User 3
+		System.out.println("usuario 3");
 		recommendations = recommender.recommend(3, 4);
 		for (RecommendedItem recommendation : recommendations) {
 			System.out.println(recommendation);
 		}
-
+		
+		//User 4
 		System.out.println("usuario 4");
 		recommendations = recommender.recommend(4, 4);
 		for (RecommendedItem recommendation : recommendations) {
