@@ -1,4 +1,4 @@
-package br.com.alura.recomendador;
+package br.com.alura;
 
 import org.apache.mahout.cf.taste.common.TasteException;
 import org.apache.mahout.cf.taste.eval.RecommenderBuilder;
@@ -14,7 +14,7 @@ import org.apache.mahout.math.hadoop.similarity.cooccurrence.measures.PearsonCor
 public class RecomendadorDeProdutosBuilder implements RecommenderBuilder {
 
 	public Recommender buildRecommender(DataModel model) throws TasteException {
-		UserSimilarity similarity = new PearsonCorrelationSimilarity(model);
+		UserSimilarity similarity = new PearsonCorrelationSimilarity(produtos);
 		UserNeighborhood neighborhood = new ThresholdUserNeighborhood(0.1, similarity, model);
 		UserBasedRecommender recommender = new GenericUserBasedRecommender(model, neighborhood, similarity);
 		return null;
