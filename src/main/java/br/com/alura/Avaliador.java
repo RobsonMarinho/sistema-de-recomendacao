@@ -11,16 +11,17 @@ import org.apache.mahout.cf.taste.model.DataModel;
 public class Avaliador {
 
 	public static void main(String[] args) throws IOException, TasteException {
-		//aleatóriedade
+		// aleatóriedade
 		org.apache.mahout.common.RandomUtils.useTestSeed();
-		
-		DataModel produtos = new Recomendador().getModeloDeProdutos();
 
+		// Pega um modelo de curso
+		DataModel modelo = new Recomendador().getModeloDeCursos();
 
+		// Tenta calcular todas a diferenças
 		RecommenderEvaluator evaluator = new AverageAbsoluteDifferenceRecommenderEvaluator();
-		RecommenderBuilder builder = new RecomendadorDeProdutosBuilder();
-		double erro = evaluator.evaluate(builder, null, produtos, 0.9, 1.0);
-		System.out.println(erro);	//Exibe a margem de erro
+		RecommenderBuilder builder = new RecomendadorBuilder();
+		double erro = evaluator.evaluate(builder, null, modelo, 0.9, 1.0);
+		System.out.println(erro); // Exibe a margem de erro
 
 	}
 }

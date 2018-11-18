@@ -11,14 +11,14 @@ import org.apache.mahout.cf.taste.recommender.UserBasedRecommender;
 import org.apache.mahout.cf.taste.similarity.UserSimilarity;
 import org.apache.mahout.math.hadoop.similarity.cooccurrence.measures.PearsonCorrelationSimilarity;
 
-public class RecomendadorDeProdutosBuilder implements RecommenderBuilder {
+public class RecomendadorBuilder implements RecommenderBuilder {
 
 	public Recommender buildRecommender(DataModel model) throws TasteException {
 		UserSimilarity similarity = new PearsonCorrelationSimilarity(produtos);
 		UserNeighborhood neighborhood = new ThresholdUserNeighborhood(0.1, similarity, model);
 		UserBasedRecommender recommender = new GenericUserBasedRecommender(model, neighborhood, similarity);
 		return null;
-	
+
 	}
 
 }
