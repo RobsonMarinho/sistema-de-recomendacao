@@ -9,4 +9,6 @@ Olhamos como utilizar também Java e Mahout para recomendar cursos com dados pre
 
 Um ponto que não observamos, mas que vale ser citado é em relação a ordem das recomendações. Será que faz sentido recomendar um curso de C# para um aluno que fez o curso de Lógica de Programação? E o contrário? Na Amazon, por exemplo, alguns livros podem fazer sentido quando recomendados em uma ordem específica, assim como alguns produtos. Estes casos são melhores explorados nos algoritmos de classificação. 
 
+hacktoberfest.
+
 Então sim, podemos utilizar Machine Learning para recomendar um próximo item baseado em uma lista de itens já consumidos pelo usuário.
